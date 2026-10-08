@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load gb %}
+{% block title %}{% t "meta.title.programs" "Programs — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+{% include "_banner.html" with key="programs.banner" %}
+<section class="section"><div class="container">
+  <div class="programs-grid">
+    {% for p in programs %}
+    <div class="program-card" id="{{ p.slug }}">
+      <div class="thumb">{% if p.image_src %}<img src="{{ p.image_src }}" alt="{{ p.title }}" loading="lazy">{% endif %}</div>
+      <div class="body">
+        <span class="tag">{{ p.tag }}</span>
+        <h4>{{ p.title }}</h4>
+        <p>{{ p.description }}</p>
+        <a href="{% url 'accounts:register' %}?program={{ p.slug }}" class="program-link">{% t "programs.join" "Join this program →" %}</a>
+      </div>
+    </div>
+    {% empty %}<p>{% t "programs.empty" "No programs are published yet — please check back soon." %}</p>{% endfor %}
+  </div>
+</div></section>
+{% include "_cta.html" with key="programs.cta" %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load gb %}
+{% block title %}{% t "meta.title.404" "Page not found — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+<div class="auth-wrap"><div class="auth-card"><div class="a-head"><div class="mark">{% include "_logo.html" %}</div>
+<h1>{% t "404.heading" "Page not found" %}</h1><p>{% t "404.text" "This path hasn't been planted yet." %}</p></div>
+<a href="{% url 'core:home' %}" class="btn btn-primary btn-block">{% t "404.button" "Back to home" %}</a></div></div>
+{% endblock %}

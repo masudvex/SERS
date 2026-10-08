@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static gb %}
+{% block title %}{% t "meta.title.gallery" "Gallery — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+{% include "_banner.html" with key="gallery.banner" %}
+<section class="section"><div class="container">
+  <div class="gallery-filters">
+    <a class="gfilter{% if not selected %} active{% endif %}" href="{% url 'core:gallery' %}">{% t "gallery.filter_all" "All" %}</a>
+    {% for c in categories %}<a class="gfilter{% if c.slug == selected %} active{% endif %}" href="?category={{ c.slug }}">{{ c.name }}</a>{% endfor %}
+  </div>
+
+  <div class="gallery-grid">
+    {% for p in page %}
+    <div class="g-item {{ p.layout }}" data-cat="{{ p.category.slug }}" tabindex="0" role="button" aria-label="{% t "gallery.enlarge" "Enlarge photo: {caption}" caption=p.caption %}">
+      <img src="{{ p.image_src }}" alt="{{ p.alt_text|default:p.caption }}" loading="lazy"><span class="g-cap">{{ p.caption }}</span>
+    </div>
+    {% empty %}<p>{% t "gallery.empty" "No photos in this category yet." %}</p>{% endfor %}
+  </div>
+
+  {% if page.has_other_pages %}
+  <nav class="pager" aria-label="{% t "gallery.pager_aria" "Gallery pages" %}">
+    {% if page.has_previous %}<a class="btn btn-line" href="?{{ query }}page={{ page.previous_page_number }}">{% t "gallery.newer" "← Newer" %}</a>{% endif %}
+    <span>{% t "gallery.page_of" "Page {n} of {total}" n=page.number total=page.paginator.num_pages %}</span>
+    {% if page.has_next %}<a class="btn btn-line" href="?{{ query }}page={{ page.next_page_number }}">{% t "gallery.older" "Older →" %}</a>{% endif %}
+  </nav>
+  {% endif %}
+</div></section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="{% t "ui.close" "Close" %}"><i class="fa-solid fa-xmark"></i></button>
+  <img id="lightboxImg" src="" alt="{% t "gallery.lightbox_alt" "Enlarged gallery photo" %}">
+</div>
+{% include "_cta.html" with key="gallery.cta" %}
+{% endblock %}

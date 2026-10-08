@@ -1,0 +1,1 @@
+{% load gb %}{% if site.logo %}{% t "ui.logo_alt" "{site_name} logo" site_name=site.site_name as logo_alt %}<img src="{{ site.logo.url }}" alt="{{ logo_alt }}">{% else %}<i class="fa-solid fa-seedling"></i>{% endif %}

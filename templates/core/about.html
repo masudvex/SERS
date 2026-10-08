@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load gb %}
+{% block title %}{% t "meta.title.about" "About Us — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+{% include "_banner.html" with key="about.banner" %}
+
+{% content_block "about.story1" as s1 %}
+<section class="section"><div class="container"><div class="split-block">
+  <div>
+    <span class="eyebrow">{{ s1.eyebrow }}</span>
+    <h2>{{ s1.heading }}</h2>
+    {% for para in s1.paragraphs %}<p>{{ para }}</p>{% endfor %}
+  </div>
+  {% if s1.image_src %}<img src="{{ s1.image_src }}" alt="{{ s1.image_alt }}" loading="lazy">{% endif %}
+</div></div></section>
+
+{% content_block "about.story2" as s2 %}
+<section class="section tint"><div class="container"><div class="split-block reverse">
+  <div>
+    <span class="eyebrow">{{ s2.eyebrow }}</span>
+    <h2>{{ s2.heading }}</h2>
+    {% for para in s2.paragraphs %}<p>{{ para }}</p>{% endfor %}
+  </div>
+  {% if s2.image_src %}<img src="{{ s2.image_src }}" alt="{{ s2.image_alt }}" loading="lazy">{% endif %}
+</div></div></section>
+
+{% content_block "about.values" as v %}
+<section class="section"><div class="container">
+  <div class="section-head"><span class="eyebrow">{{ v.eyebrow }}</span><h2>{{ v.heading }}</h2></div>
+  <div class="value-grid">
+    {% for c in values %}<div class="value-card">{% if c.icon %}<i class="fa-solid {{ c.icon }}"></i>{% endif %}<h4>{{ c.title }}</h4><p>{{ c.text }}</p></div>{% endfor %}
+  </div>
+</div></section>
+
+{% content_block "about.milestones" as ms %}
+{% if milestones %}
+<section class="section tint"><div class="container">
+  <div class="section-head"><span class="eyebrow">{{ ms.eyebrow }}</span><h2>{{ ms.heading }}</h2></div>
+  <div class="timeline">
+    {% for m in milestones %}<div class="t-row"><div class="yr">{{ m.year }}</div><div><h5>{{ m.title }}</h5><p>{{ m.text }}</p></div></div>{% endfor %}
+  </div>
+</div></section>
+{% endif %}
+
+{% include "_cta.html" with key="about.cta" %}
+{% endblock %}

@@ -1,0 +1,604 @@
+{
+ "settings": {
+  "mission_text": "To make tree plantation a normal, everyday act of community life in Bangladesh — by giving any group of neighbours the saplings, training and support they need to green the land around them, and by tracking every tree planted so the country can see its own progress.",
+  "vision_text": "A Bangladesh where every school has a shaded courtyard, every coastline has a living mangrove barrier, and every city street has a canopy overhead — rebuilt tree by tree by the people who live there, not handed down from outside.",
+  "baseline_registered_users": 25450,
+  "active_teams": 185,
+  "site_name": "SERS Foundation"
+ },
+ "blocks": {
+  "home.hero": {
+   "eyebrow": "Plant Together,",
+   "heading": "Grow a Greener Bangladesh",
+   "body": "All-in-one platform to organise, track and grow tree plantation drives — faster and smarter.",
+   "button_label": "Join for free",
+   "button_url": "/register/"
+  },
+  "home.map": {
+   "eyebrow": "Where the trees are going in",
+   "heading": "Plantation activity across all eight divisions",
+   "body": "Every marker is a real plantation site. Tap one to see what's growing there and how it's cared for."
+  },
+  "home.programs": {
+   "eyebrow": "Five ways to get involved",
+   "heading": "Our programs",
+   "body": "From schoolyards to river deltas, each program is built around a different landscape.",
+   "button_label": "View all programs",
+   "button_url": "/programs/"
+  },
+  "home.cta": {
+   "heading": "Can't plant in person?",
+   "body": "৳150 plants and cares for one sapling through its first year — mangrove, fruit, or native shade tree.",
+   "button_label": "Donate now",
+   "button_url": "/donate/",
+   "button_icon": "fa-heart"
+  },
+  "about.banner": {
+   "heading": "Our story so far",
+   "image_url": "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1600&q=80",
+   "image_alt": "Green forest canopy",
+   "body": "We started with a handful of volunteers and one riverside neighbourhood. Today we're a nationwide movement — but the way we work hasn't changed.",
+   "eyebrow": "About Us"
+  },
+  "about.story1": {
+   "eyebrow": "How it started",
+   "heading": "A neighbourhood clean-up that grew into a movement",
+   "image_url": "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=80",
+   "image_alt": "Volunteers planting saplings",
+   "body": "Green Bangladesh began in 2019 when a small group of university students in Dhaka started replacing littered vacant lots with saplings. What started as weekend clean-ups turned into a structured plantation program once local schools and community leaders asked to get involved.\n\nSince then, we've built a simple model: local teams identify land that needs trees, we supply saplings and training, and volunteers do the planting and the follow-up care. Every tree is logged, photographed and mapped, so anyone can see exactly where the movement has reached."
+  },
+  "about.story2": {
+   "eyebrow": "How we work today",
+   "heading": "Local teams, national reach",
+   "image_url": "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=900&q=80",
+   "image_alt": "Community members planting together",
+   "body": "We now run 185+ active teams spread across all eight divisions, each led by volunteers from that community. Teams choose their own planting sites — schoolyards, riverbanks, coastal belts, roadside strips — based on what their area actually needs.\n\nHead office in Dhaka handles sapling sourcing, training materials and the live tracking platform. Everything else — the digging, the watering, the years of aftercare — is done by people planting trees where they live."
+  },
+  "about.values": {
+   "eyebrow": "What guides us",
+   "heading": "The values behind every plantation drive"
+  },
+  "about.milestones": {
+   "eyebrow": "Milestones",
+   "heading": "Where we've been"
+  },
+  "about.cta": {
+   "heading": "Want to be part of the next chapter?",
+   "body": "Register a team in your area or join an existing plantation drive this month.",
+   "button_label": "Get involved",
+   "button_url": "/register/",
+   "button_icon": "fa-seedling"
+  },
+  "mission.banner": {
+   "heading": "Why we plant, and where it's heading",
+   "image_url": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=80",
+   "image_alt": "Sunlight through a forest",
+   "body": "Two short statements that decide everything else we do — from which land we choose to which trees we plant.",
+   "eyebrow": "Mission & Vision"
+  },
+  "mission.targets": {
+   "eyebrow": "Turning vision into targets",
+   "heading": "What we're working towards by 2030",
+   "body": "Our vision only means something if it's measurable. These are the commitments our teams are held to."
+  },
+  "mission.cta": {
+   "heading": "Help us reach these targets sooner",
+   "body": "Every registered volunteer and every planted sapling moves the date forward.",
+   "button_label": "Join the movement",
+   "button_url": "/register/",
+   "button_icon": "fa-seedling"
+  },
+  "programs.banner": {
+   "heading": "Five programs, one goal",
+   "image_url": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80",
+   "image_alt": "A plantation program in progress",
+   "body": "Every program is built around a different landscape and a different kind of volunteer — pick the one that fits where you live.",
+   "eyebrow": "Programs"
+  },
+  "programs.cta": {
+   "heading": "Not sure which program fits?",
+   "body": "Tell us where you're based when you register and we'll point you to the nearest active team.",
+   "button_label": "Register now",
+   "button_url": "/register/",
+   "button_icon": "fa-seedling"
+  },
+  "gallery.banner": {
+   "heading": "Moments from the field",
+   "image_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80",
+   "image_alt": "A green landscape",
+   "body": "Photos uploaded by volunteers and teams from plantation drives across the country.",
+   "eyebrow": "Gallery"
+  },
+  "gallery.cta": {
+   "heading": "Planted a tree recently?",
+   "body": "Register and upload a photo — once approved it goes onto the live map and this gallery.",
+   "button_label": "Upload your photo",
+   "button_url": "/register/",
+   "button_icon": "fa-camera"
+  },
+  "contact.banner": {
+   "heading": "Get in touch",
+   "image_url": "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deaa?auto=format&fit=crop&w=1600&q=80",
+   "image_alt": "Green urban street",
+   "body": "Questions about a program, a donation, or starting a team in your area — we read every message.",
+   "eyebrow": "Contact Us"
+  },
+  "contact.info": {
+   "eyebrow": "Reach us directly",
+   "heading": "Head office & support",
+   "body": "Already have 5+ volunteers? Mention it in the form and we'll set you up directly."
+  },
+  "donate.banner": {
+   "heading": "Sponsor a sapling",
+   "image_url": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80",
+   "image_alt": "Young tree being cared for",
+   "body": "Can't plant in person? Fund the saplings and local teams will plant and care for them.",
+   "eyebrow": "Donate"
+  },
+  "home.hero_auth": {
+   "button_label": "Go to my dashboard",
+   "button_url": "/dashboard/",
+   "button_icon": "fa-arrow-right"
+  },
+  "donate.intro": {
+   "eyebrow": "Every sapling counts",
+   "body": "Choose how many saplings you'd like to sponsor. We plant them with local teams, care for them through their first year, and log each one on the public map.\n\nYour pledge is recorded straight away; our team then emails you payment instructions (bKash, Nagad or bank transfer)."
+  }
+ },
+ "divisions": [
+  {
+   "name": "Dhaka",
+   "latitude": 23.8103,
+   "longitude": 90.4125,
+   "base_trees": 32400,
+   "map_note": "Urban & community plantation"
+  },
+  {
+   "name": "Chattogram",
+   "latitude": 22.3569,
+   "longitude": 91.7832,
+   "base_trees": 24150,
+   "map_note": "Community & coastal plantation"
+  },
+  {
+   "name": "Khulna",
+   "latitude": 22.8456,
+   "longitude": 89.5403,
+   "base_trees": 18700,
+   "map_note": "Mangrove restoration"
+  },
+  {
+   "name": "Rajshahi",
+   "latitude": 24.3745,
+   "longitude": 88.6042,
+   "base_trees": 15300,
+   "map_note": "Community greenery program"
+  },
+  {
+   "name": "Rangpur",
+   "latitude": 25.7439,
+   "longitude": 89.2752,
+   "base_trees": 10200,
+   "map_note": "Rural tree plantation"
+  },
+  {
+   "name": "Sylhet",
+   "latitude": 24.8949,
+   "longitude": 91.8687,
+   "base_trees": 9800,
+   "map_note": "Community plantation program"
+  },
+  {
+   "name": "Barishal",
+   "latitude": 22.701,
+   "longitude": 90.3535,
+   "base_trees": 8950,
+   "map_note": "Community tree plantation"
+  },
+  {
+   "name": "Mymensingh",
+   "latitude": 24.7471,
+   "longitude": 90.4203,
+   "base_trees": 6300,
+   "map_note": "School & community plantation"
+  }
+ ],
+ "programs": [
+  {
+   "title": "School Tree Plantation",
+   "short_title": "School Plantation",
+   "tag": "Education",
+   "short_description": "We work with schools to teach students about nature and plant trees together.",
+   "description": "We work with schools across the country to teach students about nature and plant trees in their own communities, with a short lesson before every drive.",
+   "image_url": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=700&q=80",
+   "show_on_home": true
+  },
+  {
+   "title": "Community Plantation",
+   "short_title": "",
+   "tag": "Community",
+   "short_description": "Neighbours come together to green shared streets, parks and public spaces.",
+   "description": "Local residents come together to green shared streets, parks and public spaces, choosing the sites that matter most to their neighbourhood.",
+   "image_url": "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=700&q=80",
+   "show_on_home": true
+  },
+  {
+   "title": "Mangrove Restoration",
+   "short_title": "",
+   "tag": "Coastal",
+   "short_description": "Protecting coastal communities through mangrove restoration and plantation.",
+   "description": "Protecting coastal communities through mangrove restoration, working closely with fishing villages exposed to storm surge.",
+   "image_url": "https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=700&q=80",
+   "show_on_home": true
+  },
+  {
+   "title": "Urban Greenery",
+   "short_title": "",
+   "tag": "Urban",
+   "short_description": "Turning grey urban spaces into healthy, green environments for everyone.",
+   "description": "Turning grey urban spaces into healthy green environments — roadside strips, rooftop gardens, and reclaimed vacant lots.",
+   "image_url": "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deaa?auto=format&fit=crop&w=700&q=80",
+   "show_on_home": true
+  },
+  {
+   "title": "Tree Care & Monitoring",
+   "short_title": "",
+   "tag": "Aftercare",
+   "short_description": "Planting is only the beginning — we monitor and care for young trees.",
+   "description": "Planting is only the beginning. This program follows up on existing sites — watering, pruning and replacing what didn't survive.",
+   "image_url": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=700&q=80",
+   "show_on_home": true
+  },
+  {
+   "title": "Team Leader Training",
+   "short_title": "",
+   "tag": "Volunteer",
+   "short_description": "A short course for volunteers who want to start and run a plantation team.",
+   "description": "A short course for volunteers who want to start and run a plantation team in their own area, with sapling and tool support provided.",
+   "image_url": "https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=700&q=80",
+   "show_on_home": false
+  }
+ ],
+ "hero_images": [
+  "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deaa?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=80"
+ ],
+ "gallery_categories": [
+  "School",
+  "Community",
+  "Mangrove",
+  "Urban",
+  "Volunteers"
+ ],
+ "gallery": [
+  {
+   "caption": "Dhaka community drive",
+   "category": "Community",
+   "image_url": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=900&q=80",
+   "layout": "wide tall"
+  },
+  {
+   "caption": "School program, Rajshahi",
+   "category": "School",
+   "image_url": "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=500&q=80",
+   "layout": ""
+  },
+  {
+   "caption": "Khulna coastline",
+   "category": "Mangrove",
+   "image_url": "https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=500&q=80",
+   "layout": ""
+  },
+  {
+   "caption": "Team leader training",
+   "category": "Volunteers",
+   "image_url": "https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=900&q=80",
+   "layout": "tall"
+  },
+  {
+   "caption": "Chattogram roadside",
+   "category": "Urban",
+   "image_url": "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deaa?auto=format&fit=crop&w=500&q=80",
+   "layout": ""
+  },
+  {
+   "caption": "Barishal neighbourhood",
+   "category": "Community",
+   "image_url": "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=500&q=80",
+   "layout": ""
+  },
+  {
+   "caption": "Aftercare visit, Sylhet",
+   "category": "Mangrove",
+   "image_url": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80",
+   "layout": "wide"
+  },
+  {
+   "caption": "School courtyard, Rangpur",
+   "category": "School",
+   "image_url": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=500&q=80",
+   "layout": ""
+  },
+  {
+   "caption": "Urban greenery, Dhaka",
+   "category": "Urban",
+   "image_url": "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=500&q=80",
+   "layout": ""
+  },
+  {
+   "caption": "End of a long day",
+   "category": "Volunteers",
+   "image_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80",
+   "layout": ""
+  }
+ ],
+ "cards": {
+  "home_features": [
+   {
+    "icon": "",
+    "title": "Nationwide Volunteer Teams",
+    "text": "185+ local teams plan and run plantation drives across every division."
+   },
+   {
+    "icon": "",
+    "title": "Live Tree Tracking",
+    "text": "Every sapling is logged, mapped and photographed the moment it's planted."
+   },
+   {
+    "icon": "",
+    "title": "Measurable Impact",
+    "text": "Open dashboards show real tree counts and growth, region by region."
+   }
+  ],
+  "about_values": [
+   {
+    "icon": "fa-people-roof",
+    "title": "Community-led",
+    "text": "Every site is chosen and planted by the people who live there — not decided from a head office."
+   },
+   {
+    "icon": "fa-magnifying-glass-chart",
+    "title": "Radically transparent",
+    "text": "Every tree we count is mapped, dated and photographed. Anyone can check our numbers."
+   },
+   {
+    "icon": "fa-seedling",
+    "title": "Aftercare first",
+    "text": "A planted tree isn't a finished job. Teams commit to watering and monitoring for at least two years."
+   },
+   {
+    "icon": "fa-graduation-cap",
+    "title": "Education-driven",
+    "text": "Most drives include a short session on why the species and site were chosen, not just a shovel."
+   },
+   {
+    "icon": "fa-hand-holding-heart",
+    "title": "Open to everyone",
+    "text": "No experience, equipment or fee required — we provide saplings, tools and guidance on the day."
+   },
+   {
+    "icon": "fa-water",
+    "title": "Climate-conscious",
+    "text": "Species are matched to local soil and flood risk, with extra focus on coastal mangrove belts."
+   }
+  ],
+  "targets": [
+   {
+    "icon": "fa-tree",
+    "title": "1 million trees",
+    "text": "Reaching one million trees planted and verified across all eight divisions."
+   },
+   {
+    "icon": "fa-school",
+    "title": "2,000 schools",
+    "text": "A planted, shaded courtyard in two thousand government and community schools."
+   },
+   {
+    "icon": "fa-water",
+    "title": "500 km of coastline",
+    "text": "Mangrove restoration along five hundred kilometres of the country's most exposed coast."
+   },
+   {
+    "icon": "fa-users",
+    "title": "1,000 local teams",
+    "text": "An active, trained volunteer team within reach of every district in the country."
+   },
+   {
+    "icon": "fa-leaf",
+    "title": "90% survival rate",
+    "text": "Long-term aftercare that keeps the vast majority of planted trees alive past year three."
+   },
+   {
+    "icon": "fa-chart-line",
+    "title": "Full transparency",
+    "text": "Every tree mapped and photographed — publicly, permanently, and open to anyone."
+   }
+  ]
+ },
+ "milestones": [
+  {
+   "year": 2019,
+   "title": "First plantation drive",
+   "text": "18 volunteers plant 400 saplings on a reclaimed lot in Old Dhaka."
+  },
+  {
+   "year": 2021,
+   "title": "First mangrove program",
+   "text": "Partnership with a Khulna fishing community restores 12 hectares of coastline."
+  },
+  {
+   "year": 2023,
+   "title": "National expansion",
+   "text": "Teams launch in all eight divisions; registered volunteers pass 10,000."
+  },
+  {
+   "year": 2025,
+   "title": "Live tracking platform",
+   "text": "Every plantation site is mapped in real time, open for anyone to see."
+  },
+  {
+   "year": 2026,
+   "title": "125,800+ trees planted",
+   "text": "185 active teams and counting, across schools, coastlines and city streets."
+  }
+ ],
+ "menu": [
+  {
+   "menu": "main",
+   "label": "Home",
+   "url": "/"
+  },
+  {
+   "menu": "main",
+   "label": "About",
+   "url": "/about/"
+  },
+  {
+   "menu": "main",
+   "label": "Mission & Vision",
+   "url": "/mission-vision/"
+  },
+  {
+   "menu": "main",
+   "label": "Programs",
+   "url": "/programs/"
+  },
+  {
+   "menu": "main",
+   "label": "Gallery",
+   "url": "/gallery/"
+  },
+  {
+   "menu": "main",
+   "label": "Contact",
+   "url": "/contact/"
+  },
+  {
+   "menu": "actions",
+   "label": "Log in",
+   "url": "/login/",
+   "visibility": "anonymous",
+   "style": "line"
+  },
+  {
+   "menu": "actions",
+   "label": "Register",
+   "url": "/register/",
+   "visibility": "anonymous",
+   "style": "primary"
+  },
+  {
+   "menu": "actions",
+   "label": "My dashboard",
+   "url": "/dashboard/",
+   "visibility": "authenticated",
+   "style": "line"
+  },
+  {
+   "menu": "actions",
+   "label": "Log out",
+   "url": "/logout/",
+   "visibility": "authenticated",
+   "style": "primary",
+   "is_logout": true
+  },
+  {
+   "menu": "footer_explore",
+   "label": "About Us",
+   "url": "/about/"
+  },
+  {
+   "menu": "footer_explore",
+   "label": "Mission & Vision",
+   "url": "/mission-vision/"
+  },
+  {
+   "menu": "footer_explore",
+   "label": "Programs",
+   "url": "/programs/"
+  },
+  {
+   "menu": "footer_explore",
+   "label": "Gallery",
+   "url": "/gallery/"
+  },
+  {
+   "menu": "footer_explore",
+   "label": "Donate",
+   "url": "/donate/"
+  },
+  {
+   "menu": "footer_account",
+   "label": "Log in",
+   "url": "/login/",
+   "icon": "fa-solid fa-right-to-bracket",
+   "visibility": "anonymous"
+  },
+  {
+   "menu": "footer_account",
+   "label": "Register",
+   "url": "/register/",
+   "icon": "fa-solid fa-user-plus",
+   "visibility": "anonymous"
+  },
+  {
+   "menu": "footer_account",
+   "label": "My dashboard",
+   "url": "/dashboard/",
+   "icon": "fa-solid fa-gauge",
+   "visibility": "authenticated"
+  },
+  {
+   "menu": "footer_account",
+   "label": "Contact us",
+   "url": "/contact/",
+   "icon": "fa-solid fa-envelope"
+  }
+ ],
+ "social": [
+  {
+   "name": "Facebook",
+   "icon": "fab fa-facebook-f",
+   "url": "https://facebook.com/"
+  },
+  {
+   "name": "YouTube",
+   "icon": "fab fa-youtube",
+   "url": "https://youtube.com/"
+  },
+  {
+   "name": "Instagram",
+   "icon": "fab fa-instagram",
+   "url": "https://instagram.com/"
+  },
+  {
+   "name": "LinkedIn",
+   "icon": "fab fa-linkedin-in",
+   "url": "https://linkedin.com/"
+  }
+ ],
+ "stats": [
+  {
+   "label": "Registered users",
+   "source": "users",
+   "suffix": "+"
+  },
+  {
+   "label": "Trees planted nationwide",
+   "source": "trees",
+   "suffix": "+"
+  },
+  {
+   "label": "Active plantation teams",
+   "source": "teams",
+   "suffix": "+"
+  }
+ ]
+}

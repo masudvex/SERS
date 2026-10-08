@@ -1,0 +1,96 @@
+{% load static gb %}<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{% t "meta.title.default" "{site_name} — Tree Plantation Movement" site_name=site.site_name %}{% endblock %}</title>
+<meta name="description" content="{% block meta_description %}{{ site.footer_blurb }}{% endblock %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+{% block head_extra %}{% endblock %}
+{% if site.favicon %}<link rel="icon" href="{{ site.favicon.url }}">{% elif site.logo %}<link rel="icon" href="{{ site.logo.url }}">{% endif %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/dynamic.css' %}">
+</head>
+<body>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="side-menu" id="sideMenu">
+  {% t "ui.close_menu" "Close menu" as close_menu %}
+  <button class="side-menu-close" id="closeMenu" aria-label="{{ close_menu }}"><i class="fa-solid fa-xmark"></i></button>
+  <ul>
+    {% for m in menus.main %}<li><a href="{{ m.url }}"{% if m.new_tab %} target="_blank" rel="noopener"{% endif %}>{{ m.label }}</a></li>{% endfor %}
+  </ul>
+  <div class="sm-actions">
+    {% for m in menus.actions %}{% include "_menu_action.html" with block="1" %}{% endfor %}
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-row">
+    <a href="{% url 'core:home' %}" class="logo"><span class="mark">{% include "_logo.html" %}</span>{% if site.logo and not site.show_name_with_logo %}<span class="sr-only">{{ site.site_name }}</span>{% else %}{{ site.site_name }}{% endif %}</a>
+    <nav class="main-nav">
+      {% for m in menus.main %}<a href="{{ m.url }}"{% if m.is_current %} class="active"{% endif %}{% if m.new_tab %} target="_blank" rel="noopener"{% endif %}>{{ m.label }}</a>{% endfor %}
+    </nav>
+    <div class="header-actions">
+      {% for m in menus.actions %}{% include "_menu_action.html" %}{% endfor %}
+      {% t "ui.open_menu" "Open menu" as open_menu %}
+      <button class="menu-btn" id="openMenu" aria-label="{{ open_menu }}"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+{% if messages %}
+<div class="flash-wrap">
+  {% for m in messages %}<div class="flash flash-{{ m.level_tag }}" role="status"><i class="fa-solid fa-circle-check"></i> {{ m }}</div>{% endfor %}
+</div>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="{% url 'core:home' %}" class="footer-logo"><span class="mark">{% include "_logo.html" %}</span>{% if site.logo and not site.show_name_with_logo %}<span class="sr-only">{{ site.site_name }}</span>{% else %}{{ site.site_name }}{% endif %}</a>
+        <p>{{ site.footer_blurb }}</p>
+        <div class="social">
+          {% for s in social_links %}<a href="{{ s.url }}" aria-label="{{ s.name }}" rel="noopener" target="_blank"><i class="{{ s.icon }}"></i></a>{% endfor %}
+        </div>
+      </div>
+      <div>
+        <h5>{% t "footer.col1.title" "Explore" %}</h5>
+        <ul class="footer-links">
+          {% for m in menus.footer_explore %}<li><a href="{{ m.url }}"{% if m.new_tab %} target="_blank" rel="noopener"{% endif %}>{% if m.icon %}<i class="{{ m.icon }}"></i> {% endif %}{{ m.label }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h5>{% t "footer.col2.title" "Account" %}</h5>
+        <ul class="footer-links">
+          {% for m in menus.footer_account %}<li><a href="{{ m.url }}"{% if m.new_tab %} target="_blank" rel="noopener"{% endif %}>{% if m.icon %}<i class="{{ m.icon }}"></i> {% endif %}{{ m.label }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h5>{% t "footer.col3.title" "Contact" %}</h5>
+        <ul class="footer-links">
+          <li><i class="{% t 'footer.icon.address' 'fa-solid fa-location-dot' %}"></i> {{ site.short_address }}</li>
+          <li><i class="{% t 'footer.icon.phone' 'fa-solid fa-phone' %}"></i> {{ site.phone }}</li>
+          <li><i class="{% t 'footer.icon.email' 'fa-solid fa-envelope' %}"></i> {{ site.email }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">{% now "Y" as this_year %}{% t "footer.copyright" "© {year} {site_name}. All rights reserved." year=this_year site_name=site.site_name %}</div>
+  </div>
+</footer>
+
+{% block scripts_extra %}{% endblock %}
+{% t 'js.location_unavailable' 'Location is not available in this browser.' as j_none %}{% t 'js.locating' 'Locating…' as j_loc %}{% t 'js.location_pinned' 'Location pinned ✓' as j_pin %}{% t 'js.location_failed' 'Could not get your location.' as j_fail %}{% t 'js.trees' 'trees' as j_trees %}{% t 'js.n_trees' '{n} tree(s)' as j_n %}
+<script>window.GB = window.GB || {};window.GB.i18n = {
+  locating: "{{ j_loc|escapejs }}", pinned: "{{ j_pin|escapejs }}", geoFail: "{{ j_fail|escapejs }}", geoNone: "{{ j_none|escapejs }}",
+  trees: "{{ j_trees|escapejs }}", treesN: "{{ j_n|escapejs }}"
+};</script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

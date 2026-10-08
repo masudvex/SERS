@@ -1,0 +1,9 @@
+{% load gb %}{% content_block key as b %}
+<section class="page-banner">
+  {% if b.image_src %}<img src="{{ b.image_src }}" alt="{{ b.image_alt }}">{% endif %}
+  <div class="container">
+    <div class="crumb"><a href="{% url 'core:home' %}">{% t "ui.breadcrumb_home" "Home" %}</a> / {{ b.eyebrow }}</div>
+    <h1>{{ b.heading }}</h1>
+    <p>{{ b.body }}</p>
+  </div>
+</section>

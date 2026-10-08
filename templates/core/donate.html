@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load gb %}
+{% block title %}{% t "meta.title.donate" "Donate — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+{% include "_banner.html" with key="donate.banner" %}
+{% content_block "donate.intro" as di %}
+<section class="section"><div class="container"><div class="contact-layout">
+  <div>
+    <span class="eyebrow">{{ di.eyebrow }}</span>
+    <h2 style="font-size:26px;margin-bottom:18px;">{% t "donate.heading" "{currency}{price} plants and cares for one sapling" currency=site.currency_symbol price=site.sapling_cost %}</h2>
+    {% for para in di.paragraphs %}<p{% if not forloop.first %} style="margin-top:14px;"{% endif %}>{{ para }}</p>{% endfor %}
+  </div>
+  <form class="contact-form" method="post" id="donateForm" data-price="{{ site.sapling_cost }}" novalidate>
+    {% csrf_token %}
+    <div class="field-row">
+      {% include "_field.html" with field=form.name %}
+      {% include "_field.html" with field=form.email %}
+    </div>
+    <div class="field-row">
+      {% include "_field.html" with field=form.phone %}
+      {% include "_field.html" with field=form.saplings %}
+    </div>
+    {% include "_field.html" with field=form.message %}
+    <p class="donate-total">{% t "donate.total_label" "Total:" %} <strong>{{ site.currency_symbol }}<span id="donateTotal">{{ site.sapling_cost }}</span></strong></p>
+    <button type="submit" class="btn btn-gold btn-block"><i class="fa-solid {% t 'donate.button_icon' 'fa-heart' %}"></i> {% t "donate.submit" "Pledge now" %}</button>
+  </form>
+</div></div></section>
+{% endblock %}

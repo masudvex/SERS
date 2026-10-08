@@ -1,0 +1,6 @@
+{# one header/side-menu action button; pass block="1" for full-width #}
+{% if m.is_logout %}
+<form method="post" action="{% url 'accounts:logout' %}"{% if not block %} class="inline-form"{% endif %}>{% csrf_token %}<button type="submit" class="{{ m.btn_class|default:'btn btn-line' }}{% if block %} btn-block{% endif %}">{{ m.label }}</button></form>
+{% else %}
+<a href="{{ m.url }}" class="{{ m.btn_class|default:'btn btn-line' }}{% if block %} btn-block{% endif %}"{% if m.new_tab %} target="_blank" rel="noopener"{% endif %}>{% if m.style == "primary" and not block %}<span>{{ m.label }}</span>{% else %}{{ m.label }}{% endif %}</a>
+{% endif %}

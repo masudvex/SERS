@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load gb %}
+{% block title %}{% t "meta.title.register" "Register — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+<div class="auth-wrap"><div class="auth-card" style="max-width:560px;">
+  <div class="a-head"><div class="mark">{% include "_logo.html" %}</div>
+    <h1>{% t "register.heading" "Join the movement" %}</h1><p>{% t "register.subheading" "Create your profile, then upload a photo of every tree you plant." %}</p></div>
+  <form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+    <div class="field-row">
+      {% include "_field.html" with field=form.full_name %}
+      {% include "_field.html" with field=form.phone %}
+    </div>
+    {% include "_field.html" with field=form.email %}
+    <div class="field-row">
+      {% include "_field.html" with field=form.division %}
+      {% include "_field.html" with field=form.password %}
+    </div>
+    {% include "_field.html" with field=form.interested_program %}
+
+    <label class="upload-box" id="uploadBox">
+      <input type="file" name="photo" accept="image/*" id="photoInput" hidden>
+      <span class="thumb" id="thumb"><i class="fa-solid fa-camera"></i></span>
+      <span class="u-text"><strong>{% t "register.upload.title" "Upload a photo of your planted tree" %}</strong><span>{% t "register.upload.hint" "Optional · JPG or PNG, click or drag a file here" %}</span></span>
+    </label>
+    {% for e in form.photo.errors %}<span class="field-error" style="margin-top:-10px;display:block;margin-bottom:14px;">{{ e }}</span>{% endfor %}
+
+    <div class="field-check">{{ form.agree }}<label for="{{ form.agree.id_for_label }}">{{ form.agree.label }}</label></div>
+    {% for e in form.agree.errors %}<span class="field-error" style="margin-top:-10px;display:block;margin-bottom:14px;">{{ e }}</span>{% endfor %}
+    <button type="submit" class="btn btn-primary btn-block">{% t "register.submit" "Create my account" %}</button>
+  </form>
+  <p class="auth-foot">{% t "register.have_account" "Already registered?" %} <a href="{% url 'accounts:login' %}">{% t "register.login_link" "Log in" %}</a></p>
+</div></div>
+{% endblock %}

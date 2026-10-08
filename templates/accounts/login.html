@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load gb %}
+{% block title %}{% t "meta.title.login" "Log In — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+<div class="auth-wrap"><div class="auth-card">
+  <div class="a-head"><div class="mark">{% include "_logo.html" %}</div>
+    <h1>{% t "login.heading" "Welcome back" %}</h1><p>{% t "login.subheading" "Log in to see your trees, your team and your impact." %}</p></div>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+    <input type="hidden" name="next" value="{{ next }}">
+    {% include "_field.html" with field=form.username %}
+    {% include "_field.html" with field=form.password %}
+    <div class="field-check">{{ form.remember }}<label for="{{ form.remember.id_for_label }}">{{ form.remember.label }}</label></div>
+    <button type="submit" class="btn btn-primary btn-block">{% t "login.submit" "Log in" %}</button>
+  </form>
+  <p class="auth-foot">{% t "login.forgot" "Forgot your password?" %} <a href="{% url 'accounts:password_reset' %}">{% t "login.forgot_link" "Reset it here" %}</a></p>
+  <p class="auth-foot">{% t "login.new" "New here?" %} <a href="{% url 'accounts:register' %}">{% t "login.new_link" "Create an account" %}</a></p>
+</div></div>
+{% endblock %}

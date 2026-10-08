@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static gb %}
+{% block title %}{% t "meta.title.home" "{site_name} — Tree Plantation Movement" site_name=site.site_name %}{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}{% content_block "home.hero_auth" as cta %}{% else %}{% content_block "home.hero" as cta %}{% endif %}
+{% content_block "home.hero" as hero %}
+<section class="hero-top">
+  <div class="container">
+    <h1><span class="line1">{{ hero.eyebrow }}</span><span class="line2">{{ hero.heading }}</span></h1>
+    <p class="lede">{{ hero.body }}</p>
+    {% if cta.button_label %}
+    <div class="hero-cta">
+      <a href="{{ cta.button_url }}" class="btn-dark-pill">{{ cta.button_label }} <span class="arrow-circle"><i class="fa-solid {{ cta.button_icon|default:'fa-arrow-right' }}"></i></span></a>
+    </div>
+    {% endif %}
+  </div>
+  <div class="hero-arc-wrap"><div id="arcMask" data-scale="{{ site.hero_strip_scale }}"><div class="arc-strip" id="arcStrip"></div></div></div>
+  <div class="hero-features"><div class="container">
+    {% for f in features %}<div class="hf"><h5>{{ f.title }}</h5><p>{{ f.text }}</p></div>{% endfor %}
+  </div></div>
+</section>
+
+{% if stat_values %}
+<section class="ribbon" id="impact">
+  <div class="container ribbon-grid">
+    {% for st in stat_values %}<div class="ribbon-item"><div class="n" data-count="{{ st.value }}" data-suffix="{{ st.suffix }}">0</div><div class="l">{{ st.label }}</div></div>{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% content_block "home.map" as m %}
+<section class="section tint">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">{{ m.eyebrow }}</span>
+      <h2>{{ m.heading }}</h2>
+      <p>{{ m.body }}</p>
+    </div>
+    <div class="map-layout">
+      {% t "home.map.aria" "Map of plantation sites across Bangladesh" as map_aria %}
+      <div class="map-card"><div id="bangladeshMap" aria-label="{{ map_aria }}"></div></div>
+      <div class="division-list">
+        <h4>{% t "home.division_list.title" "Trees planted by division" %}</h4>
+        {% for d in divisions_ranked %}
+        <div class="d-row"><div class="d-name">{{ d.name }}</div><div class="d-bar"><span style="width:{{ d.bar }}%"></span></div><div class="d-num">{{ d.planted_total|intcomma_bn }}</div></div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% content_block "home.programs" as pg %}
+<section class="section" id="programs">
+  <div class="container">
+    <div class="section-head split">
+      <div class="copy">
+        <span class="eyebrow">{{ pg.eyebrow }}</span>
+        <h2>{{ pg.heading }}</h2>
+        <p>{{ pg.body }}</p>
+      </div>
+      {% if pg.button_label %}<a href="{{ pg.button_url|default:'/programs/' }}" class="btn btn-line">{{ pg.button_label }}</a>{% endif %}
+    </div>
+    {% if home_programs %}
+    <div class="programs-slider">
+      <div class="programs-window">
+        <div class="programs-track" id="programsTrack">
+          {% for p in home_programs %}
+          <div class="p-slide"><div class="program-card"><div class="thumb">{% if p.image_src %}<img src="{{ p.image_src }}" alt="{{ p.title }}" loading="lazy">{% endif %}</div><div class="body"><span class="tag">{{ p.tag }}</span><h4>{{ p.home_title }}</h4><p>{{ p.short_description }}</p><a href="{% url 'core:programs' %}#{{ p.slug }}" class="program-link">{% t "programs.learn_more" "Learn more →" %}</a></div></div></div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="programs-controls">
+        {% t "home.programs.prev" "Previous programs" as prev_l %}{% t "home.programs.next" "Next programs" as next_l %}
+        <button class="p-arrow" id="progPrev" aria-label="{{ prev_l }}"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="p-arrow" id="progNext" aria-label="{{ next_l }}"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% include "_cta.html" with key="home.cta" %}
+{% endblock %}
+
+{% block scripts_extra %}
+{{ hero_images|json_script:"heroImagesData" }}
+{{ map_config|json_script:"mapConfig" }}
+{% endblock %}

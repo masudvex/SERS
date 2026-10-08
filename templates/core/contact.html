@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static gb %}
+{% block title %}{% t "meta.title.contact" "Contact Us — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+{% include "_banner.html" with key="contact.banner" %}
+{% content_block "contact.info" as ci %}
+<section class="section"><div class="container"><div class="contact-layout">
+  <div>
+    <span class="eyebrow">{{ ci.eyebrow }}</span>
+    <h2 style="font-size:26px;margin-bottom:24px;">{{ ci.heading }}</h2>
+    <div class="contact-info-item"><i class="fa-solid {% t 'contact.icon.address' 'fa-location-dot' %}"></i><div><h5>{% t "contact.label.address" "Address" %}</h5><p>{{ site.address }}</p></div></div>
+    <div class="contact-info-item"><i class="fa-solid {% t 'contact.icon.phone' 'fa-phone' %}"></i><div><h5>{% t "contact.label.phone" "Phone" %}</h5><p>{{ site.phone }}{% if site.phone_hours %} ({{ site.phone_hours }}){% endif %}</p></div></div>
+    <div class="contact-info-item"><i class="fa-solid {% t 'contact.icon.email' 'fa-envelope' %}"></i><div><h5>{% t "contact.label.email" "Email" %}</h5><p>{{ site.email }}</p></div></div>
+    {% if ci.body %}<div class="contact-info-item"><i class="fa-solid {% t 'contact.icon.team' 'fa-people-group' %}"></i><div><h5>{% t "contact.label.team" "Start a team" %}</h5><p>{{ ci.body }}</p></div></div>{% endif %}
+    <div class="social" style="margin-top:8px;">
+      {% for s in social_links %}<a href="{{ s.url }}" aria-label="{{ s.name }}" rel="noopener" target="_blank" style="background:var(--sage);color:var(--forest);"><i class="{{ s.icon }}"></i></a>{% endfor %}
+    </div>
+  </div>
+
+  <form class="contact-form" method="post" novalidate>
+    {% csrf_token %}
+    <div class="hp-field" aria-hidden="true">{{ form.website }}</div>
+    <div class="field-row">
+      {% include "_field.html" with field=form.name %}
+      {% include "_field.html" with field=form.email %}
+    </div>
+    {% include "_field.html" with field=form.subject %}
+    {% include "_field.html" with field=form.message %}
+    <button type="submit" class="btn btn-primary btn-block">{% t "contact.form.submit" "Send message" %}</button>
+  </form>
+</div></div></section>
+
+<section class="section tint" style="padding-top:0;"><div class="container">
+  {% t "contact.map.aria" "Map of our plantation sites" as map_aria %}
+  <div class="map-card"><div id="bangladeshMap" style="height:360px;" aria-label="{{ map_aria }}"></div></div>
+</div></section>
+{% endblock %}
+{% block scripts_extra %}
+{{ map_config|json_script:"mapConfig" }}
+{% endblock %}

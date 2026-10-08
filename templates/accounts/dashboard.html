@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load gb %}
+{% block title %}{% t "meta.title.dashboard" "My dashboard — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+<section class="section"><div class="container">
+  <div class="section-head"><span class="eyebrow">{% t "dashboard.reg_id" "Registration ID {id}" id=reg_id %}</span>
+    <h1 style="font-size:clamp(28px,4vw,40px);">{% t "dashboard.greeting" "Hello, {name}" name=user.first_name|default:user.username %}</h1>
+    <p>{% t "dashboard.intro" "Log every tree you plant. Once our team approves a planting it's added to the national total, the map and the gallery." %}</p></div>
+
+  <div class="dash-stats">
+    <div><strong>{{ trees_approved }}</strong><span>{% t "dashboard.stat.verified" "Trees verified" %}</span></div>
+    <div><strong>{{ trees_pending }}</strong><span>{% t "dashboard.stat.pending" "Awaiting review" %}</span></div>
+    <div><strong>{{ plantings|length }}</strong><span>{% t "dashboard.stat.logged" "Plantings logged" %}</span></div>
+  </div>
+
+  <div class="contact-layout" style="margin-top:36px;">
+    <div>
+      <h3 style="margin-bottom:16px;">{% t "dashboard.list.title" "Your plantings" %}</h3>
+      {% t "format.date" "j M Y" as date_fmt %}
+      {% for p in plantings %}
+      <div class="planting-row">
+        {% if p.photo %}<img src="{{ p.photo.url }}" alt="" loading="lazy">{% else %}<span class="ph"><i class="fa-solid fa-tree"></i></span>{% endif %}
+        <div>
+          <strong>{% t "dashboard.trees_n" "{n} tree(s)" n=p.trees_count %}{% if p.species %} · {{ p.species }}{% endif %}</strong>
+          <span>{{ p.location|default:p.division.name }}, {{ p.division.name }} · {{ p.planted_on|date:date_fmt }}</span>
+          {% if p.admin_note %}<span class="note">{{ p.admin_note }}</span>{% endif %}
+        </div>
+        <span class="badge badge-{{ p.status }}">{% status_label p.status %}</span>
+      </div>
+      {% empty %}<p>{% t "dashboard.list.empty" "You haven't logged a planting yet — add your first one on the right." %}</p>{% endfor %}
+    </div>
+
+    <form class="contact-form" method="post" enctype="multipart/form-data" id="plantingForm" novalidate>
+      {% csrf_token %}
+      <h3 style="margin-bottom:18px;">{% t "dashboard.form.title" "Log a planting" %}</h3>
+      {{ form.latitude }}{{ form.longitude }}
+      <div class="field-row">
+        {% include "_field.html" with field=form.division %}
+        {% include "_field.html" with field=form.trees_count %}
+      </div>
+      <div class="field-row">
+        {% include "_field.html" with field=form.species %}
+        {% include "_field.html" with field=form.planted_on %}
+      </div>
+      {% include "_field.html" with field=form.location %}
+      <button type="button" class="btn btn-line" id="geoBtn" style="margin-bottom:18px;"><i class="fa-solid fa-location-crosshairs"></i> {% t "dashboard.form.pin_button" "Pin my current location" %}</button>
+      <span id="geoStatus" class="geo-status"></span>
+      <label class="upload-box" id="uploadBox">
+        <input type="file" name="photo" accept="image/*" id="photoInput" hidden>
+        <span class="thumb" id="thumb"><i class="fa-solid fa-camera"></i></span>
+        <span class="u-text"><strong>{% t "dashboard.upload.title" "Add a photo" %}</strong><span>{% t "dashboard.upload.hint" "JPG or PNG up to 5 MB" %}</span></span>
+      </label>
+      {% for e in form.photo.errors %}<span class="field-error">{{ e }}</span>{% endfor %}
+      <button type="submit" class="btn btn-primary btn-block">{% t "dashboard.form.submit" "Submit planting" %}</button>
+    </form>
+  </div>
+</div></section>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% load gb %}{% content_block key as c %}
+{% if c.heading %}
+<section class="cta-band">
+  <div class="container row">
+    <div><h2>{{ c.heading }}</h2><p>{{ c.body }}</p></div>
+    {% if c.button_label %}<a href="{{ c.button_url }}" class="btn btn-gold">{% if c.button_icon %}<i class="fa-solid {{ c.button_icon }}"></i> {% endif %}{{ c.button_label }}</a>{% endif %}
+  </div>
+</section>
+{% endif %}

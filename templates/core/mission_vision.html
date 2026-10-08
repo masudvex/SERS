@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load gb %}
+{% block title %}{% t "meta.title.mission" "Mission & Vision — {site_name}" site_name=site.site_name %}{% endblock %}
+{% block content %}
+{% include "_banner.html" with key="mission.banner" %}
+<section class="section"><div class="container"><div class="mv-grid">
+  <div class="mv-card mission"><i class="fa-solid {% t "mission.card.mission_icon" "fa-bullseye" %}"></i><h3>{% t "mission.card.mission_title" "Our mission" %}</h3><p>{{ site.mission_text }}</p></div>
+  <div class="mv-card vision"><i class="fa-solid {% t "mission.card.vision_icon" "fa-eye" %}"></i><h3>{% t "mission.card.vision_title" "Our vision" %}</h3><p>{{ site.vision_text }}</p></div>
+</div></div></section>
+
+{% content_block "mission.targets" as t %}
+<section class="section tint"><div class="container">
+  <div class="section-head"><span class="eyebrow">{{ t.eyebrow }}</span><h2>{{ t.heading }}</h2><p>{{ t.body }}</p></div>
+  <div class="value-grid">
+    {% for c in targets %}<div class="value-card">{% if c.icon %}<i class="fa-solid {{ c.icon }}"></i>{% endif %}<h4>{{ c.title }}</h4><p>{{ c.text }}</p></div>{% endfor %}
+  </div>
+</div></section>
+{% include "_cta.html" with key="mission.cta" %}
+{% endblock %}
