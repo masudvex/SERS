@@ -1,4 +1,4 @@
-# Green Bangladesh — Django edition
+# SERS Foundation Website — Django edition
 
 The original static site, rebuilt as a fully database-driven Django project. Same design and CSS.
 
